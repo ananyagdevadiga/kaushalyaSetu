@@ -23,11 +23,17 @@ export async function getCareerRecommendationsAction(
   if (!validatedFields.success) {
     return {
       data: null,
-      error: "Invalid input.",
+      error: "Invalid input. Please check the fields.", // Generic error for field issues, but won't be displayed outside field-specific messages
       fieldErrors: validatedFields.error.flatten().fieldErrors,
     };
   }
   
+  // For UI only, we don't proceed with the AI call.
+  // We return a state that indicates success but with no data to display.
+  return { data: null, error: null };
+
+  /* 
+  // Original code that calls the AI engine:
   const input: CareerMatchmakingInput = {
     studentSkills: validatedFields.data.studentSkills,
     studentCertifications: validatedFields.data.studentCertifications,
@@ -41,4 +47,5 @@ export async function getCareerRecommendationsAction(
     const errorMessage = error instanceof Error ? error.message : "An unknown error occurred.";
     return { data: null, error: `Failed to get career recommendations: ${errorMessage}` };
   }
+  */
 }
