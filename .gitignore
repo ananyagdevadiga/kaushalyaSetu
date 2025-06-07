@@ -1,45 +1,51 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+// src/app/student/career-matchmaking/actions.ts
+'use server';
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
+import { careerMatchmakingEngine, type CareerMatchmakingInput, type CareerMatchmakingOutput } from '@/ai/flows/career-matchmaking-engine';
+import { z } from 'zod';
 
-# testing
-/coverage
+const CareerMatchmakingInputSchema = z.object({
+  studentSkills: z.string().min(1, "Skills are required."),
+  studentCertifications: z.string(), // Certifications can be optional
+});
 
-# next.js
-/.next/
-/out/
+export async function getCareerRecommendationsAction(
+  prevState: any,
+  formData: FormData
+): Promise<{data: CareerMatchmakingOutput | null; error: string | null; fieldErrors?: any }> {
+  const rawFormData = {
+    studentSkills: formData.get('studentSkills'),
+    studentCertifications: formData.get('studentCertifications'),
+  };
 
-# production
-/build
+  const validatedFields = CareerMatchmakingInputSchema.safeParse(rawFormData);
 
-# misc
-.DS_Store
-*.pem
+  if (!validatedFields.success) {
+    return {
+      data: null,
+      error: "Invalid input. Please check the fields.", // Generic error for field issues, but won't be displayed outside field-specific messages
+      fieldErrors: validatedFields.error.flatten().fieldErrors,
+    };
+  }
+  
+  // For UI only, we don't proceed with the AI call.
+  // We return a state that indicates success but with no data to display.
+  return { data: null, error: null };
 
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
+  /* 
+  // Original code that calls the AI engine:
+  const input: CareerMatchmakingInput = {
+    studentSkills: validatedFields.data.studentSkills,
+    studentCertifications: validatedFields.data.studentCertifications,
+  };
 
-# vercel
-.vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
-
-.genkit/*
-.env*
-
-# firebase
-firebase-debug.log
-firestore-debug.log
+  try {
+    const result = await careerMatchmakingEngine(input);
+    return { data: result, error: null };
+  } catch (error) {
+    console.error("Error in career matchmaking engine action:", error);
+    const errorMessage = error instanceof Error ? error.message : "An unknown error occurred.";
+    return { data: null, error: `Failed to get career recommendations: ${errorMessage}` };
+  }
+  */
+}
