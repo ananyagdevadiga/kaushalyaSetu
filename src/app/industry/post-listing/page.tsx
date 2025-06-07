@@ -1,6 +1,7 @@
 
 "use client";
 
+import React from 'react'; // Added React import
 import { ListingForm } from '@/components/listings/ListingForm';
 import { useListings, type Listing } from '@/contexts/ListingContext';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
