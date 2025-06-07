@@ -1,8 +1,8 @@
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Briefcase, Award, Brain, Presentation, UserCircle, BookOpen, MessageSquare } from 'lucide-react';
-import Image from 'next/image';
+import { Briefcase, Award, Brain, Presentation, UserCircle, MessageSquare } from 'lucide-react';
 
 export default function StudentDashboardPage() {
   return (
@@ -29,9 +29,6 @@ export default function StudentDashboardPage() {
           </CardHeader>
           <CardContent>
             <CardDescription>Showcase your projects, skills, and achievements. Let your talent shine!</CardDescription>
-             <div className="relative w-full h-40 mt-4 rounded-md overflow-hidden">
-              <Image src="https://placehold.co/600x400.png" alt="Portfolio preview" layout="fill" objectFit="cover" data-ai-hint="portfolio resume"/>
-            </div>
             <Button asChild variant="link" className="text-primary p-0 mt-4">
               <Link href="#">Manage Portfolio &rarr;</Link>
             </Button>
@@ -47,9 +44,6 @@ export default function StudentDashboardPage() {
           </CardHeader>
           <CardContent>
             <CardDescription>Earn verified badges by completing courses and assessments.</CardDescription>
-            <div className="relative w-full h-40 mt-4 rounded-md overflow-hidden">
-              <Image src="https://placehold.co/600x400.png" alt="Certifications" layout="fill" objectFit="cover" data-ai-hint="certificate badge"/>
-            </div>
             <Button asChild variant="link" className="text-primary p-0 mt-4">
               <Link href="#">Explore Courses &rarr;</Link>
             </Button>
@@ -65,9 +59,6 @@ export default function StudentDashboardPage() {
           </CardHeader>
           <CardContent>
             <CardDescription>Get AI-powered internship and job recommendations.</CardDescription>
-            <div className="relative w-full h-40 mt-4 rounded-md overflow-hidden">
-              <Image src="https://placehold.co/600x400.png" alt="AI matchmaking" layout="fill" objectFit="cover" data-ai-hint="career path"/>
-            </div>
             <Button asChild className="mt-4 w-full bg-accent text-accent-foreground hover:bg-accent/90">
               <Link href="/student/career-matchmaking">Find Opportunities</Link>
             </Button>
@@ -83,9 +74,6 @@ export default function StudentDashboardPage() {
           </CardHeader>
           <CardContent>
             <CardDescription>Join live expert talks and workshops.</CardDescription>
-             <div className="relative w-full h-40 mt-4 rounded-md overflow-hidden">
-              <Image src="https://placehold.co/600x400.png" alt="Webinar" layout="fill" objectFit="cover" data-ai-hint="webinar online"/>
-            </div>
             <Button asChild variant="link" className="text-primary p-0 mt-4">
               <Link href="#">View Schedule &rarr;</Link>
             </Button>
@@ -101,9 +89,6 @@ export default function StudentDashboardPage() {
           </CardHeader>
           <CardContent>
             <CardDescription>Connect with mentors and ask questions in our community forum.</CardDescription>
-             <div className="relative w-full h-40 mt-4 rounded-md overflow-hidden">
-              <Image src="https://placehold.co/600x400.png" alt="Mentorship forum" layout="fill" objectFit="cover" data-ai-hint="forum community"/>
-            </div>
             <Button asChild variant="link" className="text-primary p-0 mt-4">
               <Link href="#">Access Forum &rarr;</Link>
             </Button>

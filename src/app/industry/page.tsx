@@ -1,8 +1,8 @@
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Building, Users, Briefcase, Search } from 'lucide-react';
-import Image from 'next/image';
 
 export default function IndustryDashboardPage() {
   return (
@@ -29,9 +29,6 @@ export default function IndustryDashboardPage() {
           </CardHeader>
           <CardContent>
             <CardDescription>Browse student portfolios and discover candidates with the right skills.</CardDescription>
-            <div className="relative w-full h-40 mt-4 rounded-md overflow-hidden">
-              <Image src="https://placehold.co/600x400.png" alt="Find talent" layout="fill" objectFit="cover" data-ai-hint="talent search"/>
-            </div>
             <Button asChild variant="link" className="text-primary p-0 mt-4">
               <Link href="#">Search Portfolios &rarr;</Link>
             </Button>
@@ -47,9 +44,6 @@ export default function IndustryDashboardPage() {
           </CardHeader>
           <CardContent>
             <CardDescription>List internships and job openings to attract qualified students.</CardDescription>
-            <div className="relative w-full h-40 mt-4 rounded-md overflow-hidden">
-              <Image src="https://placehold.co/600x400.png" alt="Post job" layout="fill" objectFit="cover" data-ai-hint="job post"/>
-            </div>
             <Button asChild className="mt-4 w-full bg-accent text-accent-foreground hover:bg-accent/90">
               <Link href="#">Create Listing</Link>
             </Button>
@@ -65,9 +59,6 @@ export default function IndustryDashboardPage() {
           </CardHeader>
           <CardContent>
             <CardDescription>Engage with students through webinars, talks, and mentorship.</CardDescription>
-             <div className="relative w-full h-40 mt-4 rounded-md overflow-hidden">
-              <Image src="https://placehold.co/600x400.png" alt="Mentorship" layout="fill" objectFit="cover" data-ai-hint="mentor student"/>
-            </div>
             <Button asChild variant="link" className="text-primary p-0 mt-4">
               <Link href="#">Learn More &rarr;</Link>
             </Button>
