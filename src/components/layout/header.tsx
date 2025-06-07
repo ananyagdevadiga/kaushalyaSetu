@@ -21,7 +21,7 @@ export function Header() {
           <MainNavLink href="/student/career-matchmaking">Career AI</MainNavLink>
           <MainNavLink
             href="/signup"
-            className="flex items-center border border-accent"
+            className="flex items-center border-2 border-accent text-accent hover:bg-accent hover:text-primary-foreground"
           >
             <UserPlus className="w-4 h-4 mr-1 sm:mr-2" /> Sign Up
           </MainNavLink>
