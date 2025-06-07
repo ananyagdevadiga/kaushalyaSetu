@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -46,10 +47,10 @@ export default function HomePage() {
           <div className="relative w-full max-w-3xl mx-auto h-64 md:h-96 rounded-lg overflow-hidden shadow-2xl mb-12">
             <Image 
               src="https://placehold.co/1200x600.png" 
-              alt="Students collaborating on a project" 
+              alt="AI-generated animated image of students collaborating on a project" 
               layout="fill"
               objectFit="cover"
-              data-ai-hint="collaboration students"
+              data-ai-hint="animated collaboration"
               className="transform hover:scale-105 transition-transform duration-500"
             />
           </div>
