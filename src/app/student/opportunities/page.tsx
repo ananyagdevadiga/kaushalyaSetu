@@ -6,7 +6,8 @@ import { useListings } from '@/contexts/ListingContext';
 import { ListingCard } from '@/components/listings/ListingCard';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Briefcase, Search } from 'lucide-react';
+import { Label } from '@/components/ui/label';
+import { Search } from 'lucide-react';
 
 export default function OpportunitiesPage() {
   const { listings, applyToListing } = useListings();
@@ -36,17 +37,8 @@ export default function OpportunitiesPage() {
 
   return (
     <div className="space-y-8">
-      <section className="flex items-center gap-4 p-6 bg-gradient-to-r from-primary to-indigo-600 text-primary-foreground rounded-lg shadow-lg">
-        <Briefcase className="w-12 h-12 text-accent" />
-        <div>
-          <h1 className="text-3xl font-headline font-bold">Job & Internship Opportunities</h1>
-          <p className="text-lg opacity-90">
-            Explore openings from our industry partners and apply to kickstart your career.
-          </p>
-        </div>
-      </section>
-
       <div className="p-4 bg-card rounded-lg shadow-md border">
+        <h1 className="text-2xl font-headline font-bold text-primary mb-4">Find Opportunities</h1>
         <div className="grid sm:grid-cols-2 gap-4 items-end">
           <div>
             <Label htmlFor="search-listings" className="text-sm font-medium">Search Listings</Label>
@@ -101,18 +93,3 @@ export default function OpportunitiesPage() {
     </div>
   );
 }
-
-// Adding a Label component here as it's used in this file and might not be globally available in all contexts
-// Normally, it would be imported from '@/components/ui/label'
-const Label = React.forwardRef<
-  React.ElementRef<typeof React.Fragment>, // Not a real label, just for typing
-  React.HTMLAttributes<HTMLLabelElement> & { htmlFor?: string }
->(({ className, children, htmlFor, ...props }, ref) => {
-  return (
-    <label htmlFor={htmlFor} className={`block text-sm font-medium text-foreground ${className}`} {...props}>
-      {children}
-    </label>
-  );
-});
-Label.displayName = "Label";
-
