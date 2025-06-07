@@ -5,7 +5,7 @@ import { Footer } from '@/components/layout/footer';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'K-Skill Connect',
+  title: 'KaushalyaSetu',
   description: 'Connecting Karnataka&apos;s polytechnic talent with industry opportunities.',
 };
 

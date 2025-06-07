@@ -39,7 +39,7 @@ export default function HomePage() {
       <section className="text-center py-16 bg-gradient-to-br from-primary/10 via-background to-accent/10 rounded-lg shadow-inner">
         <div className="container mx-auto px-4">
           <h1 className="text-5xl font-headline font-bold text-primary mb-6">
-            Welcome to K-Skill Connect
+            Welcome to KaushalyaSetu
           </h1>
           <p className="text-xl text-foreground/80 mb-8 max-w-3xl mx-auto">
             Bridging the gap between Karnataka&apos;s polytechnic talent and industry demands. Certify your skills, build your portfolio, and connect with opportunities.

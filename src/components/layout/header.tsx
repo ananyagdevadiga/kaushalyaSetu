@@ -11,7 +11,7 @@ export function Header() {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 text-xl sm:text-2xl font-headline font-bold hover:text-accent transition-colors">
           <GraduationCap className="w-7 h-7 sm:w-8 sm:h-8" />
-          K-Skill Connect
+          KaushalyaSetu
         </Link>
         <nav className="flex items-center space-x-1 sm:space-x-2 flex-wrap justify-end">
           <MainNavLink href="/">Home</MainNavLink>

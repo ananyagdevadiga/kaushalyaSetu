@@ -93,7 +93,7 @@ export function LoginForm() {
   return (
     <Card className="w-full max-w-md mx-auto shadow-xl border-border">
       <CardHeader className="text-center">
-        <CardTitle className="text-3xl font-headline text-primary">K-Skill Connect Login</CardTitle>
+        <CardTitle className="text-3xl font-headline text-primary">KaushalyaSetu Login</CardTitle>
         <CardDescription>Select your role and enter your credentials.</CardDescription>
       </CardHeader>
       <CardContent>
