@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import { MainNavLink } from './main-nav-link';
-import { GraduationCap, LogIn } from 'lucide-react';
+import { GraduationCap, LogIn, UserPlus } from 'lucide-react';
 
 export function Header() {
   return (
@@ -19,6 +19,12 @@ export function Header() {
           <MainNavLink href="/login?role=industry">Industry</MainNavLink>
           <MainNavLink href="/login?role=admin">Admin</MainNavLink>
           <MainNavLink href="/student/career-matchmaking">Career AI</MainNavLink>
+          <MainNavLink 
+            href="/signup" 
+            className="flex items-center bg-accent text-accent-foreground hover:bg-accent/90"
+          >
+            <UserPlus className="w-4 h-4 mr-1 sm:mr-2" /> Sign Up
+          </MainNavLink>
           <MainNavLink href="/login" className="flex items-center">
             <LogIn className="w-4 h-4 mr-1 sm:mr-2" /> Login
           </MainNavLink>
@@ -27,3 +33,4 @@ export function Header() {
     </header>
   );
 }
+
