@@ -1,23 +1,27 @@
+
 "use client";
 
 import Link from 'next/link';
 import { MainNavLink } from './main-nav-link';
-import { GraduationCap } from 'lucide-react';
+import { GraduationCap, LogIn } from 'lucide-react';
 
 export function Header() {
   return (
     <header className="bg-primary text-primary-foreground shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 text-2xl font-headline font-bold hover:text-accent transition-colors">
-          <GraduationCap className="w-8 h-8" />
+        <Link href="/" className="flex items-center gap-2 text-xl sm:text-2xl font-headline font-bold hover:text-accent transition-colors">
+          <GraduationCap className="w-7 h-7 sm:w-8 sm:h-8" />
           K-Skill Connect
         </Link>
-        <nav className="flex items-center space-x-2 sm:space-x-4">
+        <nav className="flex items-center space-x-1 sm:space-x-2 flex-wrap justify-end">
           <MainNavLink href="/">Home</MainNavLink>
           <MainNavLink href="/student">Student</MainNavLink>
           <MainNavLink href="/industry">Industry</MainNavLink>
           <MainNavLink href="/admin">Admin</MainNavLink>
           <MainNavLink href="/student/career-matchmaking">Career AI</MainNavLink>
+          <MainNavLink href="/login" className="flex items-center">
+            <LogIn className="w-4 h-4 mr-1 sm:mr-2" /> Login
+          </MainNavLink>
         </nav>
       </div>
     </header>
