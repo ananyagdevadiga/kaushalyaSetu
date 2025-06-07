@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -11,14 +11,24 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter }
 import { toast } from '@/hooks/use-toast';
 import { LogIn } from 'lucide-react';
 
-type Role = "student" | "industry" | "admin";
+export type Role = "student" | "industry" | "admin";
 
-export function LoginForm() {
+interface LoginFormProps {
+  initialRole?: Role;
+}
+
+export function LoginForm({ initialRole }: LoginFormProps) {
   const router = useRouter();
-  const [selectedRole, setSelectedRole] = useState<Role>("student");
+  const [selectedRole, setSelectedRole] = useState<Role>(initialRole || "student");
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    if (initialRole && ["student", "industry", "admin"].includes(initialRole)) {
+      setSelectedRole(initialRole);
+    }
+  }, [initialRole]);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -48,6 +58,13 @@ export function LoginForm() {
         router.push('/');
     }
     // No need to setIsLoading(false) as we are redirecting.
+  };
+
+  const handleRoleChange = (value: string) => {
+    setSelectedRole(value as Role);
+    // Optionally clear fields on tab switch, or keep them for convenience
+    // setEmail('');
+    // setPassword('');
   };
 
   const renderFormFields = (role: Role) => (
@@ -97,12 +114,7 @@ export function LoginForm() {
         <CardDescription>Select your role and enter your credentials.</CardDescription>
       </CardHeader>
       <CardContent>
-        <Tabs value={selectedRole} onValueChange={(value) => {
-          setSelectedRole(value as Role);
-          // Optionally clear fields on tab switch, or keep them for convenience
-          // setEmail(''); 
-          // setPassword('');
-        }} className="w-full">
+        <Tabs value={selectedRole} onValueChange={handleRoleChange} className="w-full">
           <TabsList className="grid w-full grid-cols-3">
             <TabsTrigger value="student">Student</TabsTrigger>
             <TabsTrigger value="industry">Industry</TabsTrigger>

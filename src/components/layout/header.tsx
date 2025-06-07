@@ -15,9 +15,9 @@ export function Header() {
         </Link>
         <nav className="flex items-center space-x-1 sm:space-x-2 flex-wrap justify-end">
           <MainNavLink href="/">Home</MainNavLink>
-          <MainNavLink href="/student">Student</MainNavLink>
-          <MainNavLink href="/industry">Industry</MainNavLink>
-          <MainNavLink href="/admin">Admin</MainNavLink>
+          <MainNavLink href="/login?role=student">Student</MainNavLink>
+          <MainNavLink href="/login?role=industry">Industry</MainNavLink>
+          <MainNavLink href="/login?role=admin">Admin</MainNavLink>
           <MainNavLink href="/student/career-matchmaking">Career AI</MainNavLink>
           <MainNavLink href="/login" className="flex items-center">
             <LogIn className="w-4 h-4 mr-1 sm:mr-2" /> Login
