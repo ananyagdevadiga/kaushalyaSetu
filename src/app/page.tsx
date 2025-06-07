@@ -46,11 +46,10 @@ export default function HomePage() {
           </p>
           <div className="relative w-full max-w-3xl mx-auto h-64 md:h-96 rounded-lg overflow-hidden shadow-2xl mb-12">
             <Image 
-              src="https://placehold.co/1200x600.png" 
-              alt="AI-generated animated image of students collaborating on a project" 
+              src="/img1" 
+              alt="Students collaborating on a project" 
               layout="fill"
               objectFit="cover"
-              data-ai-hint="animated collaboration"
               className="transform hover:scale-105 transition-transform duration-500"
             />
           </div>
