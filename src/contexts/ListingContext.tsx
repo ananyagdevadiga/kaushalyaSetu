@@ -33,8 +33,44 @@ interface ListingContextType {
 
 const ListingContext = createContext<ListingContextType | undefined>(undefined);
 
+const sampleListings: Listing[] = [
+  {
+    id: 'sample-listing-1',
+    title: 'Frontend Developer Intern (Sample)',
+    description: 'Join our dynamic team to work on exciting new features for our flagship web application. Learn React, Tailwind CSS, and Next.js in a fast-paced, supportive environment. This is a great opportunity to gain hands-on experience.',
+    companyName: 'Innovatech Solutions Ltd.',
+    type: 'Internship',
+    requiredSkills: ['HTML', 'CSS', 'JavaScript', 'React'],
+    postedDate: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toLocaleDateString(), // Posted 2 days ago
+    applications: [],
+  },
+  {
+    id: 'sample-listing-2',
+    title: 'Junior Backend Engineer (Sample)',
+    description: 'We are looking for a motivated junior backend engineer to help build and maintain our scalable microservices architecture. Experience with Node.js and SQL/NoSQL databases is a plus. You will contribute to API development and system optimization.',
+    companyName: 'Tech Core Systems Inc.',
+    type: 'Full-time Job',
+    requiredSkills: ['Node.js', 'Express.js', 'SQL', 'Docker', 'REST APIs'],
+    postedDate: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toLocaleDateString(), // Posted 5 days ago
+    applications: [
+      { studentId: 'mockStudent001', studentName: 'Alice Wonderland', appliedDate: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toLocaleDateString() }
+    ],
+  },
+  {
+    id: 'sample-listing-3',
+    title: 'UX/UI Design Intern (Sample)',
+    description: 'Passionate about user-centered design? Apply for our UX/UI internship to collaborate on creating intuitive and visually appealing interfaces for mobile and web products. Proficiency in Figma or Adobe XD is required.',
+    companyName: 'Creative Designs Co.',
+    type: 'Internship',
+    requiredSkills: ['Figma', 'User Research', 'Prototyping', 'Wireframing'],
+    postedDate: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toLocaleDateString(), // Posted 1 day ago
+    applications: [],
+  },
+];
+
+
 export const ListingProvider = ({ children }: { children: ReactNode }) => {
-  const [listings, setListings] = useState<Listing[]>([]);
+  const [listings, setListings] = useState<Listing[]>(sampleListings);
 
   const addListing = useCallback((newListingData: Omit<Listing, 'id' | 'postedDate' | 'applications'>) => {
     const listingToAdd: Listing = {
