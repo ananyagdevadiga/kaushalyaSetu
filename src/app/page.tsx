@@ -47,7 +47,7 @@ export default function HomePage() {
           <div className="relative w-full max-w-3xl mx-auto h-64 md:h-96 rounded-lg overflow-hidden shadow-2xl mb-12">
             <Image 
               src="/img1.png" 
-              alt="Students collaborating on a project" 
+              alt="Students collaborating on a project at KaushalyaSetu" 
               layout="fill"
               objectFit="cover"
               className="transform hover:scale-105 transition-transform duration-500"
