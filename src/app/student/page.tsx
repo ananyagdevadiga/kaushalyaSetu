@@ -30,7 +30,7 @@ export default function StudentDashboardPage() {
           <CardContent>
             <CardDescription>Showcase your projects, skills, and achievements. Let your talent shine!</CardDescription>
             <Button asChild variant="link" className="text-primary p-0 mt-4">
-              <Link href="#">Manage Portfolio &rarr;</Link>
+              <Link href="/student/portfolio">Manage Portfolio &rarr;</Link>
             </Button>
           </CardContent>
         </Card>
