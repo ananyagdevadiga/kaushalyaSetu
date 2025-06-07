@@ -9,25 +9,25 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import type { CareerMatchmakingOutput } from '@/ai/flows/career-matchmaking-engine';
 import { getCareerRecommendationsAction } from '@/app/student/career-matchmaking/actions';
 
-interface CareerFormProps {
-  onResults: (results: CareerMatchmakingOutput | null, error: string | null) => void;
-}
+// No onResults prop needed anymore as the page doesn't handle results display
+interface CareerFormProps {}
 
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
     <Button type="submit" disabled={pending} className="w-full sm:w-auto bg-accent text-accent-foreground hover:bg-accent/90">
-      {pending ? 'Getting Recommendations...' : 'Get Recommendations'}
+      {pending ? 'Processing...' : 'Get Recommendations'}
     </Button>
   );
 }
 
-export function CareerForm({ onResults }: CareerFormProps) {
+export function CareerForm({}: CareerFormProps) {
   const initialState: { data: CareerMatchmakingOutput | null; error: string | null; fieldErrors?: any } = { data: null, error: null };
   
+  // The action will be called, but the page won't use its output to display results/errors below the form.
   const formAction = async (prevState: any, formData: FormData) => {
     const result = await getCareerRecommendationsAction(prevState, formData);
-    onResults(result.data, result.error);
+    // No longer calling onResults
     return result;
   };
   
@@ -70,12 +70,13 @@ export function CareerForm({ onResults }: CareerFormProps) {
               placeholder="e.g., Certified Full Stack Developer, CompTIA A+"
               rows={3}
             />
+            {state.fieldErrors?.studentCertifications && (
+              <p id="studentCertificationsError" className="text-sm text-destructive">{state.fieldErrors.studentCertifications.join(', ')}</p>
+            )}
           </div>
         </CardContent>
         <CardFooter className="flex flex-col sm:flex-row justify-end items-center gap-4 pt-6">
-           {state.error && !state.fieldErrors && (
-            <p className="text-sm text-destructive text-center sm:text-left flex-grow">{state.error}</p>
-          )}
+           {/* Removed the display of state.error here to ensure "don't show anything" more strictly */}
           <SubmitButton />
         </CardFooter>
       </form>
