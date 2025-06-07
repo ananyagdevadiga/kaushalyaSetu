@@ -19,9 +19,9 @@ export function Header() {
           <MainNavLink href="/login?role=industry">Industry</MainNavLink>
           <MainNavLink href="/login?role=admin">Admin</MainNavLink>
           <MainNavLink href="/student/career-matchmaking">Career AI</MainNavLink>
-          <MainNavLink 
-            href="/signup" 
-            className="flex items-center bg-accent text-accent-foreground hover:bg-accent/90"
+          <MainNavLink
+            href="/signup"
+            className="flex items-center border border-accent"
           >
             <UserPlus className="w-4 h-4 mr-1 sm:mr-2" /> Sign Up
           </MainNavLink>
@@ -33,4 +33,3 @@ export function Header() {
     </header>
   );
 }
-
