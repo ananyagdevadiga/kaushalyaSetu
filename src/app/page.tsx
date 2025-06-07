@@ -46,7 +46,7 @@ export default function HomePage() {
           </p>
           <div className="relative w-full max-w-3xl mx-auto h-64 md:h-96 rounded-lg overflow-hidden shadow-2xl mb-12">
             <Image 
-              src="/img1" 
+              src="/img1.png" 
               alt="Students collaborating on a project" 
               layout="fill"
               objectFit="cover"
